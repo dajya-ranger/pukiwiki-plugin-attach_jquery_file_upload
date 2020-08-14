@@ -1,0 +1,18 @@
+/* html.php/edit_form() */
+.edit_form {
+  clear:both;
+}
+/* ↓PukiWiki1.5.3から追加されたCSS定義
+.edit_form textarea,.edit_form select {
+  width:95%;
+} */
+.edit_form select {
+	width: 90%;
+}
+#template_read {
+	width: 9%;
+}
+.edit_form textarea {
+	width: 100%;
+	resize: vertical;
+}
