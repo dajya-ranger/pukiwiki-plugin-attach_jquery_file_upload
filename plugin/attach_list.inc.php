@@ -72,13 +72,13 @@ function plugin_attach_list_convert() {
 				$operation = $args[1];
 				if ($num == 3) {
 					// 第3引数がある場合
-					if ((! strtolower($args[2]) == PLUGIN_ATTACH_LIST_HEAD_NOWRAP) ||
+					if ((! strtolower($args[2]) == 'nodel') ||
 						(! strtolower($args[2]) == 'newpage')) {
 						// 第3引数が削除ボタン抑止オプション
 						// または新規作成ページ指定オプションじゃない場合
 						return '#attach_list: 第3引数が不正です';
 					} else {
-						$nodel = (strtolower($args[2]) == PLUGIN_ATTACH_LIST_HEAD_NOWRAP) ? TRUE : FALSE;
+						$nodel = (strtolower($args[2]) == 'nodel') ? TRUE : FALSE;
 					}
 				}
 			}

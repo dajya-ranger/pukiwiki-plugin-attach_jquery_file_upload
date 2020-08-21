@@ -1020,13 +1020,19 @@ function attach_form_dnd($page, $is_page_edit = FALSE) {
 
 	// 管理者ユーザチェック
 	$is_admin = pkwk_login($_SESSION['authenticated_password']);
-	if (PLUGIN_ATTACH_UPLOAD_ADMIN_ONLY && ! $is_admin && ! $is_page_edit) {
+	if (PLUGIN_ATTACH_UPLOAD_ADMIN_ONLY && !($is_admin) && !($is_page_edit)) {
 		// 管理者のみ添付ファイルをアップロード可で管理者ユーザでない場合
 		// かつページ編集画面ではない場合
 		die_message('File attachments are for admin users only');
 	}
-	// 管理者のみ添付ファイル削除可の設定とユーザによって削除ボタンの表示を抑止
-	$nodel = (!(PLUGIN_ATTACH_DELETE_ADMIN_ONLY && $is_admin) && $is_page_edit) ? ",nodel" : "";
+	$nodel = "";
+	if (PLUGIN_ATTACH_DELETE_ADMIN_ONLY) {
+		// 管理者のみ添付ファイル削除可の設定の場合
+		if (! $is_admin) {
+			// 管理者ユーザ以外は削除ボタンの表示を抑止する
+			$nodel = ",nodel";
+		}
+	}
 
 	// Bootstrapスタイル（アップロード操作ボタン＋アイコン）
 	$head_tags[] = " <link rel=\"stylesheet\" href=\"{$_(PLUGIN_ATTACH_UPLOAD_TOOL_DIR)}css/bootstrap.sub.css\" />";
