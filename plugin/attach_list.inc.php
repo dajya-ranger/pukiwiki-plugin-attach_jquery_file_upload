@@ -9,8 +9,9 @@
  * @link		https://dajya-ranger.com/pukiwiki/attach-jquery-file-upload/
  * @example		#attach_list([ページ名], [full|del],[nodel],[newpage])
  * @license		Apache License 2.0
- * @version		0.1.0
- * @since 		0.1.0 2020/08/14 暫定初公開
+ * @version		0.1.1
+ * @since 		0.1.1 2020/08/21 デグレードしていた＆細かいバグを除去
+ * @since 		0.1.0 2020/08/14 暫定初公開（独自拡張）
  *
  */
 
@@ -198,8 +199,5 @@ function plugin_attach_list_convert() {
 	$search = array('&lt;', '&gt;', '&quot;');
 	$replace = array('<', '>', '"');
 	$body = str_replace($search, $replace, $body);
-	// ソートテーブルのJavaScript部分のコードを削除（attachプラグインが担当）
-	$body = mb_substr($body, 0, 
-		mb_strpos($body, '<script type="text/javascript">'));
 	return $body;
 }

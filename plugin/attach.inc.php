@@ -21,7 +21,8 @@
  * @link		https://dajya-ranger.com/pukiwiki/attach-jquery-file-upload/
  * @example		@linkの内容を参照
  * @license		Apache License 2.0
- * @version		0.1.0
+ * @version		0.1.1
+ * @since 		0.1.1 2020/08/21 デグレードしていた＆細かいバグを除去
  * @since 		0.1.0 2020/08/14 暫定初公開（独自拡張）
  *
  */
@@ -45,6 +46,7 @@ define('PLUGIN_ATTACH_UPLOAD_FILE_DELETE', 'attach_file_delete.php');
 
 // 添付ファイルリスト出力プラグインファイル読み込み
 require_once(PLUGIN_DIR . PLUGIN_ATTACH_UPLOAD_FILE_LIST . '.inc.php');
+
 
 // NOTE (PHP > 4.2.3):
 //    This feature is disabled at newer version of PHP.
@@ -76,7 +78,7 @@ define('PLUGIN_ATTACH_FILE_MODE', 0644);
 //define('PLUGIN_ATTACH_FILE_MODE', 0604); // for XREA.COM
 
 // File icon image
-define('PLUGIN_ATTACH_FILE_ICON', '<img src="' . IMAGE_DIR .  'file.png"' .
+define('PLUGIN_ATTACH_FILE_ICON', '<img src="image/file.png"' .
 	' width="20" height="20" alt="file"' .
 	' style="border-width:0" />');
 
